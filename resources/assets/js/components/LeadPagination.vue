@@ -1,5 +1,5 @@
 <template>
-<div class="mb-8">
+<div>
     <ul class="list-reset flex justify-center md:justify-start flex-wrap">
         <li class="mr-2 w-auto">
             <button class="text-grey-darker px-4 py-2 text-center cursor-pointer shadow rounded-sm"

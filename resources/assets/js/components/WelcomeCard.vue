@@ -69,7 +69,7 @@ export default {
     },
     watch: {
         impressions: function (newValue, oldValue) {
-            var vm = this
+            let vm = this;
             function animate () {
                 if (window.TWEEN.update()) {
                     requestAnimationFrame(animate)
@@ -84,12 +84,12 @@ export default {
                 .onComplete(function () {
                     vm.animatedImpressions = vm.impressions.toLocaleString();
                 })
-                .start()
+                .start();
 
             animate()
         },
         clicks: function (newValue, oldValue) {
-            var vm = this
+            let vm = this;
             function animate () {
                 if (window.TWEEN.update()) {
                     requestAnimationFrame(animate)
@@ -105,12 +105,12 @@ export default {
                 .onComplete(function () {
                     vm.animatedClicks = vm.clicks.toLocaleString();
                 })
-                .start()
+                .start();
 
             animate()
         },
         leads: function (newValue, oldValue) {
-            var vm = this
+            let vm = this;
             function animate () {
                 if (window.TWEEN.update()) {
                     requestAnimationFrame(animate)
@@ -126,7 +126,7 @@ export default {
                 .onComplete(function () {
                     vm.animatedLeads = vm.leads.toLocaleString();
                 })
-                .start()
+                .start();
 
             animate()
         },

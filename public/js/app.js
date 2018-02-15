@@ -43488,7 +43488,7 @@ exports = module.exports = __webpack_require__(95)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -43534,6 +43534,14 @@ module.exports = function listToStyles (parentId, list) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_pagination__ = __webpack_require__(399);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_leads_service__ = __webpack_require__(400);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -43730,18 +43738,30 @@ var render = function() {
     "div",
     { staticClass: "container mx-auto" },
     [
-      _c("lead-pagination", {
-        attrs: { pagination: _vm.pagination },
-        on: { page: _vm.page }
-      }),
-      _vm._v(" "),
-      _c("lead-filters", {
-        attrs: {
-          "active-filter": _vm.activeFilter,
-          "important-filter": _vm.importantFilter
+      _c(
+        "div",
+        {
+          staticClass:
+            "lead-controls flex justify-between items-center py-2 flex-wrap"
         },
-        on: { toggle: _vm.filter }
-      }),
+        [
+          _c("lead-pagination", {
+            staticClass: "w-full md:w-auto",
+            attrs: { pagination: _vm.pagination },
+            on: { page: _vm.page }
+          }),
+          _vm._v(" "),
+          _c("lead-filters", {
+            staticClass: "w-full md:max-w-xs",
+            attrs: {
+              "active-filter": _vm.activeFilter,
+              "important-filter": _vm.importantFilter
+            },
+            on: { toggle: _vm.filter }
+          })
+        ],
+        1
+      ),
       _vm._v(" "),
       _vm._l(_vm.leads, function(lead) {
         return _c("lead", {
@@ -43891,7 +43911,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "mb-8" }, [
+  return _c("div", [
     _c(
       "ul",
       {
@@ -44081,7 +44101,7 @@ exports = module.exports = __webpack_require__(95)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.switch-box {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n    -ms-flex-pack: center;\n    justify-content: center;\n    -webkit-box-align: center;\n    -ms-flex-align: center;\n    align-items: center;\n    -webkit-box-flex: 1;\n    -ms-flex: 1;\n    flex: 1;\n}\n.switch-box input[type=\"checkbox\"]{\n    font-size: 30px;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n    width: 2.5em;\n    height: 1em;\n    border-radius: 3em;\n    position: relative;\n    cursor: pointer;\n    outline: none;\n    -webkit-transition: all .2s ease-in-out;\n    transition: all .2s ease-in-out;\n}\n.switch-box input[type=\"checkbox\"]:after{\n    position: absolute;\n    content: \"\";\n    width: 1em;\n    height: 1em;\n    border-radius: 50%;\n    background: #fff;\n    -webkit-box-shadow: 0 0 .25em rgba(0,0,0,.3);\n    box-shadow: 0 0 .25em rgba(0,0,0,.3);\n    -webkit-transform: scale(.7);\n    -ms-transform: scale(.7);\n        transform: scale(.7);\n    left: 0;\n    -webkit-transition: all .2s ease-in-out;\n    transition: all .2s ease-in-out;\n}\n.switch-box input[type=\"checkbox\"]:checked:after{\n    left: calc(100% - 1em);\n}\n", ""]);
 
 // exports
 
@@ -44092,6 +44112,22 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -44142,37 +44178,91 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "w-full flex items-between h-auto" }, [
-    _c("input", {
-      attrs: { type: "checkbox", id: "activeToggle" },
-      domProps: { checked: _vm.activeFilter },
-      on: {
-        change: function($event) {
-          _vm.toggle("activeFilter")
-        }
-      }
-    }),
-    _vm._v(" "),
+  return _c("div", [
     _c(
-      "label",
-      { staticClass: "active-toggle", attrs: { for: "activeToggle" } },
-      [_vm._v("\n        Active\n    ")]
+      "div",
+      {
+        staticClass:
+          "switch-container flex justify-center items-center w-full px-4 py-1"
+      },
+      [
+        _c(
+          "label",
+          {
+            staticClass:
+              "active-toggle text-white flex-grow w-1/3 text-right px-2",
+            class: { "font-bold": _vm.activeFilter },
+            attrs: { for: "activeToggle" }
+          },
+          [_vm._v("\n            Active\n        ")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "switch-box w-1/3" }, [
+          _c("input", {
+            staticClass: "bg-grey-darker",
+            attrs: { type: "checkbox", id: "activeToggle" },
+            domProps: { checked: !_vm.activeFilter },
+            on: {
+              change: function($event) {
+                _vm.toggle("activeFilter")
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "label",
+          {
+            staticClass: "active-toggle text-white flex-grow w-1/3 px-2",
+            class: { "font-bold": !_vm.activeFilter },
+            attrs: { for: "activeToggle" }
+          },
+          [_vm._v("\n            Archived\n        ")]
+        )
+      ]
     ),
     _vm._v(" "),
-    _c("input", {
-      attrs: { type: "checkbox", id: "importantToggle" },
-      domProps: { checked: _vm.importantFilter },
-      on: {
-        change: function($event) {
-          _vm.toggle("importantFilter")
-        }
-      }
-    }),
-    _vm._v(" "),
     _c(
-      "label",
-      { staticClass: "important-toggle", attrs: { for: "importantToggle" } },
-      [_vm._v("\n        Important\n    ")]
+      "div",
+      {
+        staticClass:
+          "switch-container flex justify-center items-center w-full px-4 py-1"
+      },
+      [
+        _c(
+          "label",
+          {
+            staticClass:
+              "important-toggle text-white flex-grow w-1/3 text-right px-2",
+            class: { "font-bold": !_vm.importantFilter },
+            attrs: { for: "importantToggle" }
+          },
+          [_vm._v("\n            All\n        ")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "switch-box w-1/3" }, [
+          _c("input", {
+            staticClass: "bg-grey-darker",
+            attrs: { type: "checkbox", id: "importantToggle" },
+            domProps: { checked: _vm.importantFilter },
+            on: {
+              change: function($event) {
+                _vm.toggle("importantFilter")
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "label",
+          {
+            staticClass: "important-toggle text-white flex-grow w-1/3 px-2",
+            class: { "font-bold": _vm.importantFilter },
+            attrs: { for: "importantToggle" }
+          },
+          [_vm._v("\n            Important\n        ")]
+        )
+      ]
     )
   ])
 }
