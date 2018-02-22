@@ -18,22 +18,20 @@ class UpdateUsersTest extends TestCase
 
         $this->actingAs($user);
 
-        $this->json('PATCH', '/users/'. $user->id, [
+        $newUserData = [
             'name'         => 'Changed Name',
             'email'        => 'newemail@new.com',
             'mls_id'       => 'B7777',
             'address'      => 'This is a new address',
-            'phone_number' => '123-456-7890'
-        ]);
+            'cell_phone'   => '123-456-7890',
+            'office_phone' => '123-456-7890',
+            'company'      => 'Beachy Beach Real Estate'
+        ];
+
+        $this->json('PATCH', '/users/'. $user->id, $newUserData);
 
         $changedUser = User::find($user->id);
 
-        $this->assertDatabaseHas('users', [
-            'name'         => 'Changed Name',
-            'email'        => 'newemail@new.com',
-            'mls_id'       => 'B7777',
-            'address'      => 'This is a new address',
-            'phone_number' => '123-456-7890'
-        ]);
+        $this->assertDatabaseHas('users', $newUserData);
     }
 }

@@ -1,28 +1,34 @@
 <template>
     <div class="relative flex flex-col min-h-64">
-        <div class="z-20 flex justify-center items-center bg-white opacity-75" 
-            :class="{ 
-                 'hidden': !isLoading, 
+        <div class="z-20 flex justify-center items-center bg-white opacity-75"
+            :class="{
+                 'hidden': !isLoading,
                  'absolute': isLoading,
                  'pin': isLoading
             }">
             <ring-loader :loading="isLoading" :color="'bg-brand'" :size="'150px'"></ring-loader>
         </div>
-        <div ref="map" class="relative google-map w-full h-64 z-10" >
+        <a
+                class="font-brand block w-full px-4 py-2 cursor-pointer border-white justify-center items-center bg-brand-light text-2xl rounded-t text-white no-underline text-center md:hidden"
+                :href="'https://www.google.com/maps/dir/?api=1&destination=' + latitude + ',' + longitude"
+        >
+            GET DIRECTIONS
+        </a>
+        <div ref="map" class="relative w-full h-64 z-10" >
             <div
                     ref="directionsButton"
-                    class="font-brand w-auto px-4 py-2 cursor-pointer border-white justify-center items-center rounded absolute z-99 bg-brand-light text-2xl rounded text-white text-center"
+                    class="font-brand w-auto px-4 py-2 cursor-pointer border-white justify-center items-center absolute z-99 bg-brand-light text-2xl rounded-br text-white invisible md:visible text-center"
                     :class="{'hidden': showDirections}"
                     @click="getUserLocation"
             >
                 GET DIRECTIONS
             </div>
         </div>
-        <div 
+        <div
                 class="w-full bg-white text-brand-darket p-8 overflow-auto h-auto overflow-y-scroll"
                 :class="{'hidden': !showDirections}"
         >
-            <a class="font-brand w-auto px-4 py-2 cursor-pointer border-white justify-center items-center rounded bg-brand-light text-2xl rounded text-white text-center" @click="closeDirections">CLOSE DIRECTIONS</a>
+            <a class="font-brand w-auto px-4 py-2 cursor-pointer border-white justify-center items-center bg-brand-light text-2xl rounded text-white text-center" @click="closeDirections">CLOSE DIRECTIONS</a>
             <div class="directions" ref="directionsPanel">
             </div>
         </div>

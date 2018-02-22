@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             LeadsTableSeeder::class,
             NotesTableSeeder::class,
-            ContentTableSeeder::class
+            ContentTableSeeder::class,
+            MetaDataTableSeeder::class
         ]);
     }
 }

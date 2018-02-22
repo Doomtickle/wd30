@@ -10,13 +10,24 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'phone_number', 'mls_id', 'address'
+        'name',
+        'email',
+        'mls_id',
+        'address',
+        'company',
+        'password',
+        'cell_phone',
+        'is_realtor',
+        'office_phone',
+        'primary_phone',
+        'default_photo'
     ];
 
     /**
@@ -29,8 +40,8 @@ class User extends Authenticatable
     ];
 
     /**
-     * 
-     * @param string $query 
+     *
+     * @param string $query
      * @return
      */
     public function scopeRealtor($query)
@@ -40,7 +51,7 @@ class User extends Authenticatable
 
     /**
      * Determine if the user has an avatar.
-     * 
+     *
      * @return  \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function avatar()

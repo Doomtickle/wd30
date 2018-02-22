@@ -2,6 +2,7 @@
 namespace KeriganSolutions\Drone;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ServerException;
 
 trait CallsMothership {
 
@@ -16,7 +17,12 @@ trait CallsMothership {
 
     public function get($request)
     {
-        return $this->client->request('GET', $request);
+        try {
+            return $this->client->request('GET', $request);
+        }
+        catch(ServerException $e) {
+            return [];
+        }
     }
 
     public function post($request)

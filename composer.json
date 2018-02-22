@@ -6,12 +6,14 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "artesaos/seotools": "^0.11.1",
         "fideloper/proxy": "~3.3",
         "guzzlehttp/guzzle": "^6.3",
         "laravel-frontend-presets/tailwindcss": "^0.4.1",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "nesbot/carbon": "^1.22"
+        "nesbot/carbon": "^1.22",
+        "spatie/laravel-sitemap": "^4.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.1",

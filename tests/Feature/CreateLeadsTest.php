@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Lead;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -13,17 +14,13 @@ class CreateLeadsTest extends TestCase
     /** @test */
     public function a_lead_can_be_created()
     {
-        $lead = make('App\Lead');
-        $attributes = [
-            'name'    => $lead->name,
-            'email'   => $lead->email,
-            'phone'   => $lead->phone,
-            'message' => $lead->message
+        $lead = [
+            'name'    => 'Joe Testerson',
+            'phone'   => '850-555-5555',
+            'email'   => 'test@test.com',
+            'message' => 'Message contents',
         ];
-
-        $this->post('/leads', $attributes)
-            ->assertSuccessful();
-
-        $this->assertDatabaseHas('leads', $attributes);
+        $this->post('/leads', $lead);
+        $this->assertDatabaseHas('leads', $lead);
     }
 }

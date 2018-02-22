@@ -9,8 +9,8 @@ class OpenHouse extends Model
 {
     /**
      * Order the open houses.
-     * 
-     * @param string $openHouses Contains information for an open house. 
+     *
+     * @param string $openHouses Contains information for an open house.
      * @return array
      */
     public function extract($openHouses)
@@ -19,9 +19,9 @@ class OpenHouse extends Model
 
         foreach ($openHouses as $key => $value) {
             $extracted[$key]['epoch_string'] = Carbon::parse($openHouses[$key]->event_start)->timestamp;
-            $extracted[$key]['start_date'] = $this->formatDate($openHouses[$key]->event_start);
-            $extracted[$key]['start_time'] = $this->formatTime($openHouses[$key]->event_start);
-            $extracted[$key]['end_time'] = $this->formatTime($openHouses[$key]->event_end);
+            $extracted[$key]['start_date']   = $this->formatDate($openHouses[$key]->event_start);
+            $extracted[$key]['start_time']   = $this->formatTime($openHouses[$key]->event_start);
+            $extracted[$key]['end_time']     = $this->formatTime($openHouses[$key]->event_end);
         }
 
         usort($extracted, array($this, "cmp"));
@@ -31,7 +31,7 @@ class OpenHouse extends Model
 
     /**
      * Format the date as MMM DD, YYYY
-     * 
+     *
      * @param string $date The date of an open house.
      * @return string
      */
@@ -42,7 +42,7 @@ class OpenHouse extends Model
 
     /**
      * Format the time as HH:MM
-     * 
+     *
      * @param string $time The time for an open house.
      * @return string
      */
@@ -52,7 +52,7 @@ class OpenHouse extends Model
     }
 
     /**
-     * Callback for usort 
+     * Callback for usort
      * @return int
      */
     private function cmp($a, $b)

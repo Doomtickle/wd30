@@ -1,36 +1,42 @@
 <template>
     <div>
         <div class="switch-container flex justify-center items-center w-full px-4 py-1">
-            <label class="active-toggle text-white flex-grow w-1/3 text-right px-2" :class="{ 'font-bold': activeFilter }" for="activeToggle">
+            <label class="active-toggle text-white flex-grow w-8 text-right px-2"
+                   :class="{ 'font-bold': activeFilter }" for="activeToggle">
                 Active
             </label>
-            <div class="switch-box w-1/3">
-                <input
-                        type="checkbox"
-                        id="activeToggle"
-                        :checked="!activeFilter"
-                        @change="toggle('activeFilter')"
-                        class="bg-grey-darker"
-                />
+            <div class="switch-box w-8">
+                <label class="sudo-switcher bg-brand-darker" :class="{ 'checked': !activeFilter }" >
+                    <input
+                            type="checkbox"
+                            id="activeToggle"
+                            :checked="!activeFilter"
+                            @change="toggle('activeFilter')"
+                    />
+                </label>
             </div>
-            <label class="active-toggle text-white flex-grow w-1/3 px-2" :class="{ 'font-bold': !activeFilter }" for="activeToggle">
+            <label class="active-toggle text-white flex-grow w-8 px-2" :class="{ 'font-bold': !activeFilter }"
+                   for="activeToggle">
                 Archived
             </label>
         </div>
         <div class="switch-container flex justify-center items-center w-full px-4 py-1">
-            <label class="important-toggle text-white flex-grow w-1/3 text-right px-2" :class="{ 'font-bold': !importantFilter }" for="importantToggle">
+            <label class="important-toggle text-white flex-grow w-8 text-right px-2"
+                   :class="{ 'font-bold': !importantFilter }" for="importantToggle">
                 All
             </label>
-            <div class="switch-box w-1/3">
-                <input
-                    type="checkbox"
-                    id="importantToggle"
-                    :checked="importantFilter"
-                    @change="toggle('importantFilter')"
-                    class="bg-grey-darker"
-                />
+            <div class="switch-box w-8">
+                <label class="sudo-switcher bg-brand-darker" :class="{ 'checked': importantFilter }" >
+                    <input
+                            type="checkbox"
+                            id="importantToggle"
+                            :checked="importantFilter"
+                            @change="toggle('importantFilter')"
+                    />
+                </label>
             </div>
-            <label class="important-toggle text-white flex-grow w-1/3 px-2" :class="{ 'font-bold': importantFilter }" for="importantToggle">
+            <label class="important-toggle text-white flex-grow w-8 px-2" :class="{ 'font-bold': importantFilter }"
+                   for="importantToggle">
                 Important
             </label>
         </div>
@@ -38,23 +44,23 @@
 </template>
 
 <script>
-export default {
-    props: {
-        activeFilter: {
-            type: Boolean,
-            default: true
+    export default {
+        props: {
+            activeFilter: {
+                type: Boolean,
+                default: true
+            },
+            importantFilter: {
+                type: Boolean,
+                default: false
+            }
         },
-        importantFilter: {
-            type: Boolean,
-            default: false
-        }
-    },
-    methods: {
-        toggle(attribute) {
-            this.$emit('toggle', attribute);
+        methods: {
+            toggle(attribute) {
+                this.$emit('toggle', attribute);
+            }
         }
     }
-}
 </script>
 
 <style>
@@ -73,11 +79,12 @@ export default {
         flex: 1;
     }
 
-    .switch-box input[type="checkbox"]{
+    .switch-box input {
+        display: none;
+    }
+
+    .switch-box .sudo-switcher {
         font-size: 30px;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
         width: 2.5em;
         height: 1em;
         border-radius: 3em;
@@ -88,15 +95,15 @@ export default {
         transition: all .2s ease-in-out;
     }
 
-    .switch-box input[type="checkbox"]:after{
+    .switch-box .sudo-switcher:after {
         position: absolute;
         content: "";
         width: 1em;
         height: 1em;
         border-radius: 50%;
         background: #fff;
-        -webkit-box-shadow: 0 0 .25em rgba(0,0,0,.3);
-        box-shadow: 0 0 .25em rgba(0,0,0,.3);
+        -webkit-box-shadow: 0 0 .25em rgba(0, 0, 0, .3);
+        box-shadow: 0 0 .25em rgba(0, 0, 0, .3);
         -webkit-transform: scale(.7);
         transform: scale(.7);
         left: 0;
@@ -104,7 +111,7 @@ export default {
         transition: all .2s ease-in-out;
     }
 
-    .switch-box input[type="checkbox"]:checked:after{
+    .switch-box .sudo-switcher.checked:after {
         left: calc(100% - 1em);
     }
 </style>

@@ -7,6 +7,6 @@
     <span class="realtor-name text-brand font-brand text-3xl">
         <span v-if="! boilerplate" class="font-brand">@{{ user.name }}</span>
         <span v-else class="font-brand">Your Name</span>
-        <span class="block text-xs text-grey-dark">Beachy Beach Real Estate</span>
+        <span class="block text-xs text-grey-dark">@{{ user.company }}</span>
     </span>
 </a>

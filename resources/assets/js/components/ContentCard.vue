@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto bg-white flex flex-wrap justify-center">
+    <div class="container mx-auto bg-white flex flex-wrap justify-center mb-8">
         <p class="w-full justify-between flex font-bold items-center text-secondary p-4 border-b border-secondary">
             <span class="text-left w-auto text-3xl font-brand font-bold text-secondary">
                 CONTENT
@@ -22,7 +22,7 @@
                 @blur="submit('tagline')"
             >
         </div>
-        <div class="w-full py-2 bg-white flex flex-wrap items-start border-b">
+        <div class="w-full py-2 bg-white flex flex-wrap items-start border-b pr-2">
             <div class="font-bold w-full sm:w-1/4 md:w-1/6 py-2 px-4 text-left">
                 Body:
             </div>
@@ -35,7 +35,7 @@
                 v-model="content.body"
                 @focus="edit('body')"
                 @blur="submit('body')"
-                rows="8"
+                rows="5"
             />
         </div>
     </div>

@@ -12,7 +12,7 @@
                     <a href="/property-search/" class="button-brand w-auto mt-4 no-underline" >Property Search</a>
                 </div>
                 <div class="flex-auto w-full md:w-1/4 px-3 justify-center text-center py-2">
-                    <img src="{{ $realtor->avatar->path ?? 'http://via.placeholder.com/350x350' }}" class="border border-grey-darker rounded inline-block" >
+                    <img src="{{ $avatar }}" class="border border-grey-darker rounded inline-block" >
                 </div>
             </div>
         </div>

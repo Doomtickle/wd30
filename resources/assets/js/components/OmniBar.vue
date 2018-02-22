@@ -8,7 +8,7 @@
             @blur="onBlur()"
             name="omni"
             type="text"
-            autocomplete="off"
+            autocomplete="new-omni"
             placeholder="City, address, subdivision or zip"
             :class="{
                 'omni-input-open': showResults == true,

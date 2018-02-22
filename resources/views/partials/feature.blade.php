@@ -6,7 +6,7 @@
         </div>
         <div class="card-block p-2">
             <ul class="py-2 px-6">
-            @if(count($value > 0))
+            @if(count($value) > 0)
                 @foreach ($value as $feature)
                     <li class="text-grey-darkest py-1">{{ $feature }}</li>
                 @endforeach

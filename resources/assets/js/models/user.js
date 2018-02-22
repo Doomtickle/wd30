@@ -18,7 +18,10 @@ export default class User {
             data: {
                 name: updated.name,
                 email: updated.email,
-                phone_number: updated.phone_number,
+                cell_phone: updated.cell_phone,
+                office_phone: updated.office_phone,
+                primary_phone: updated.primary_phone,
+                company: updated.company,
                 mls_id: updated.mls_id,
                 address: updated.address
             }

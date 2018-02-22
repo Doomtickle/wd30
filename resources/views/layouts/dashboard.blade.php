@@ -44,7 +44,7 @@
         <div class='w-full bg-tan-lightest pt-24 pb-8'>
             @yield('top')
         </div>
-        <div class='bg-beachy-blue'>
+        <div class='bg-beachy-blue pb-16'>
             @yield('content')
         </div>
     </div>

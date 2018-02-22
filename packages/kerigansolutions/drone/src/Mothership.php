@@ -30,18 +30,37 @@ class Mothership
         return json_decode($response->getBody());
     }
 
+    public function agentData($email)
+    {
+        $response = $this->get('agentdata?email='. $email);
+
+        if (! is_array($response)) {
+            return json_decode($response->getBody());
+        }
+
+        return [];
+    }
+
     public function agentListings($mlsId)
     {
         $response = $this->get('agentlistings?agentId='. $mlsId);
 
-        return json_decode($response->getBody());
+        if (! is_array($response)) {
+            return json_decode($response->getBody());
+        }
+
+        return [];
     }
 
     public function agentListingsWithAnalytics($mlsId)
     {
         $response = $this->get('agentlistings?agentId='. $mlsId .'&analytics=true');
 
-        return json_decode($response->getBody());
+        if (! is_array($response)) {
+            return json_decode($response->getBody());
+        }
+
+        return [];
     }
 
     protected function paginate($properties, $request)

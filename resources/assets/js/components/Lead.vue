@@ -19,7 +19,7 @@
                 >
                     {{ lead.phone }}
                </a>                 
-            </div>
+            </div>i
         </div>    
         <div class="w-full md:w-5/6 lg:w-5/6 xl:w-5/6 flex flex-wrap items-around justify-center text-grey-darkest">
             <p class="w-full pt-4 pb-2">{{ lead.message }}</p>

@@ -84,7 +84,7 @@ export default {
                 .then(response => {
                     this.uploadedFiles = [].concat(response);
                     this.currentStatus = STATUS_SUCCESS;
-                    this.src = response;
+                    this.src = 'storage/' + response;
                 })
                 .catch(err => {
                     this.uploadError = err;
