@@ -44404,14 +44404,6 @@ var _this = this;
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -44503,46 +44495,25 @@ var render = function() {
           _vm._v(_vm._s(_vm.lead.name))
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "w-full md:w-auto text-sm flex flex-inline flex-wrap justify-start"
-          },
-          [
-            _c(
-              "a",
-              {
-                staticClass:
-                  "w-auto mb-1 bg-brand md:bg-tan-lightest text-white md:text-brand no-underline py-2 px-4 rounded md:pr-2",
-                attrs: { href: "mailto:" + _vm.lead.email }
-              },
-              [
-                _vm._v(
-                  "\n                " +
-                    _vm._s(_vm.lead.email) +
-                    "\n            "
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass:
-                  "w-auto mb-1 bg-brand md:bg-tan-lightest text-white md:text-brand no-underline py-2 px-4 rounded md:pr-2",
-                attrs: { href: "tel:" + _vm.lead.email }
-              },
-              [
-                _vm._v(
-                  "\n                " +
-                    _vm._s(_vm.lead.phone) +
-                    "\n           "
-                )
-              ]
-            )
-          ]
-        )
+        _c("p", { staticClass: "w-full text-sm" }, [
+          _c(
+            "a",
+            {
+              staticClass: "text-brand no-underline w-1/2 pr-2",
+              attrs: { href: "mailto:" + _vm.lead.email }
+            },
+            [_vm._v(_vm._s(_vm.lead.email))]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "text-brand no-underline w-1/2 pr-2",
+              attrs: { href: "tel:" + _vm.lead.email }
+            },
+            [_vm._v(_vm._s(_vm.lead.phone))]
+          )
+        ])
       ]),
       _vm._v(" "),
       _c(
@@ -44568,7 +44539,7 @@ var render = function() {
           _c(
             "a",
             {
-              staticClass: "cursorpointer text-center mr-4 w-16 h-16",
+              staticClass: "cursor-pointer text-center mr-4 w-16 h-16",
               class: { "text-red": _vm.lead.important },
               on: {
                 click: function($event) {
