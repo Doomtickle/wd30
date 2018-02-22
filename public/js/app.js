@@ -44542,8 +44542,7 @@ var render = function() {
               ]
             )
           ]
-        ),
-        _vm._v("i\n    ")
+        )
       ]),
       _vm._v(" "),
       _c(
@@ -44563,7 +44562,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "w-full xl:w-1/5 lg:w-1/4 xl:mt-2 lg:mt-1 py-4 lg:p-4 xl:p-4  xl:pin-r xl:pin-t lg:pin-r lg:pin-t flex justify-between relative lg:absolute xl:absolute items-center text-grey-darker"
+            "w-full xl:w-1/4 lg:w-1/3 xl:mt-2 lg:mt-1 py-4 lg:p-4 xl:p-4  xl:pin-r xl:pin-t lg:pin-r lg:pin-t flex justify-between relative lg:absolute xl:absolute items-center text-grey-darker"
         },
         [
           _c(

@@ -19,12 +19,12 @@
                 >
                     {{ lead.phone }}
                </a>                 
-            </div>i
+            </div>
         </div>    
         <div class="w-full md:w-5/6 lg:w-5/6 xl:w-5/6 flex flex-wrap items-around justify-center text-grey-darkest">
             <p class="w-full pt-4 pb-2">{{ lead.message }}</p>
         </div>
-        <div class="w-full xl:w-1/5 lg:w-1/4 xl:mt-2 lg:mt-1 py-4 lg:p-4 xl:p-4  xl:pin-r xl:pin-t lg:pin-r lg:pin-t flex justify-between relative lg:absolute xl:absolute items-center text-grey-darker">
+        <div class="w-full xl:w-1/4 lg:w-1/3 xl:mt-2 lg:mt-1 py-4 lg:p-4 xl:p-4  xl:pin-r xl:pin-t lg:pin-r lg:pin-t flex justify-between relative lg:absolute xl:absolute items-center text-grey-darker">
             <a
                 @click="toggleImportant(lead.id)"
                 class="cursor-pointer text-center mr-4"
