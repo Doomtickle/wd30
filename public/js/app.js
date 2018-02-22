@@ -44404,6 +44404,14 @@ var _this = this;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -44495,25 +44503,46 @@ var render = function() {
           _vm._v(_vm._s(_vm.lead.name))
         ]),
         _vm._v(" "),
-        _c("p", { staticClass: "w-full text-sm" }, [
-          _c(
-            "a",
-            {
-              staticClass: "text-brand no-underline w-1/2 pr-2",
-              attrs: { href: "mailto:" + _vm.lead.email }
-            },
-            [_vm._v(_vm._s(_vm.lead.email))]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "text-brand no-underline w-1/2 pr-2",
-              attrs: { href: "tel:" + _vm.lead.email }
-            },
-            [_vm._v(_vm._s(_vm.lead.phone))]
-          )
-        ])
+        _c(
+          "div",
+          {
+            staticClass:
+              "w-full md:w-auto text-sm flex flex-inline flex-wrap justify-start"
+          },
+          [
+            _c(
+              "a",
+              {
+                staticClass:
+                  "w-auto mb-1 bg-brand md:bg-tan-lightest text-white md:text-brand no-underline py-2 px-4 rounded md:pr-2",
+                attrs: { href: "mailto:" + _vm.lead.email }
+              },
+              [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.lead.email) +
+                    "\n            "
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass:
+                  "w-auto mb-1 bg-brand md:bg-tan-lightest text-white md:text-brand no-underline py-2 px-4 rounded md:pr-2",
+                attrs: { href: "tel:" + _vm.lead.email }
+              },
+              [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.lead.phone) +
+                    "\n           "
+                )
+              ]
+            )
+          ]
+        )
       ]),
       _vm._v(" "),
       _c(
@@ -44533,7 +44562,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "w-full xl:w-1/4 lg:w-1/3 xl:mt-2 lg:mt-1 py-4 lg:p-4 xl:p-4 xl:pin-r xl:pin-t lg:pin-r lg:pin-t flex justify-between relative lg:absolute xl:absolute items-center text-grey-darker max-h-16"
+            "w-full xl:w-1/4 lg:w-1/3 xl:mt-2 lg:mt-1 py-4 lg:p-4 xl:p-4  xl:pin-r xl:pin-t lg:pin-r lg:pin-t flex justify-between relative lg:absolute xl:absolute items-center text-grey-darker"
         },
         [
           _c(

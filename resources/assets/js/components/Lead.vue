@@ -8,15 +8,23 @@
         <div class="w-full pr-8 text-grey-darkest">
             <small class="text-smoke-lighter"><em>{{ lead.diff }}</em></small>
             <p class="w-full py-3 text-3xl">{{ lead.name }}</p>
-            <p class="w-full text-sm">
-                <a class="text-brand no-underline w-1/2 pr-2" :href="`mailto:${lead.email}`">{{ lead.email }}</a>
-                <a class="text-brand no-underline w-1/2 pr-2" :href="`tel:${lead.email}`">{{ lead.phone }}</a>
-            </p>
-        </div>
+            <div class="w-full md:w-auto text-sm flex flex-inline flex-wrap justify-start">                
+                <a class="w-auto mb-1 bg-brand md:bg-tan-lightest text-white md:text-brand no-underline py-2 px-4 rounded md:pr-2" 
+                    :href="`mailto:${lead.email}`"
+                >
+                    {{ lead.email }}
+                </a> 
+                <a class="w-auto mb-1 bg-brand md:bg-tan-lightest text-white md:text-brand no-underline py-2 px-4 rounded md:pr-2"
+                    :href="`tel:${lead.email}`"
+                >
+                    {{ lead.phone }}
+               </a>                 
+            </div>
+        </div>    
         <div class="w-full md:w-5/6 lg:w-5/6 xl:w-5/6 flex flex-wrap items-around justify-center text-grey-darkest">
             <p class="w-full pt-4 pb-2">{{ lead.message }}</p>
         </div>
-        <div class="w-full xl:w-1/4 lg:w-1/3 xl:mt-2 lg:mt-1 py-4 lg:p-4 xl:p-4 xl:pin-r xl:pin-t lg:pin-r lg:pin-t flex justify-between relative lg:absolute xl:absolute items-center text-grey-darker max-h-16">
+        <div class="w-full xl:w-1/4 lg:w-1/3 xl:mt-2 lg:mt-1 py-4 lg:p-4 xl:p-4  xl:pin-r xl:pin-t lg:pin-r lg:pin-t flex justify-between relative lg:absolute xl:absolute items-center text-grey-darker">
             <a
                 @click="toggleImportant(lead.id)"
                 class="cursorpointer text-center mr-4 w-16 h-16"
