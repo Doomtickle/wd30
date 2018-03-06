@@ -12,7 +12,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'office_phone' => $faker->phoneNumber,
         'primary_phone' => $faker->phoneNumber,
         'company' => $faker->company,
-        'mls_id' => $faker->randomNumber(4),
+        // 'mls_id' => $faker->randomNumber(4),
         'is_realtor' => 1,
         'address' => $faker->address,
         'remember_token' => str_random(10),

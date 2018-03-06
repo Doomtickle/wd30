@@ -25,7 +25,7 @@ class Boilerplate
         $user = User::realtor();
 
         Content::create([
-            'title' => $user->name . ', Realtor',
+            'title' => $user->name . ', Real Estate Expert',
             'body' => 'Use this area to tell the world why they should conduct their real estate business with you'
         ]);
     }

@@ -14,7 +14,6 @@ class MyPropertiesTest extends TestCase
     public function the_realtor_can_view_their_properties_page()
     {
         $this->signIn();
-
         $this->get('/my-properties')
             ->assertSuccessful();
     }

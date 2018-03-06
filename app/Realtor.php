@@ -3,6 +3,7 @@
 namespace App;
 
 use App\User;
+use App\MlsNumber;
 use Facades\KeriganSolutions\Drone\Mothership;
 use Illuminate\Database\Eloquent\Model;
 
@@ -34,7 +35,9 @@ class Realtor
 
     public function withListings()
     {
-        $this->listings = Mothership::agentListings($this->data->mls_id);
+        $agentMlsNumberString = MlsNumber::toString();
+
+        $this->listings = Mothership::agentListings($agentMlsNumberString);
 
         return $this;
     }

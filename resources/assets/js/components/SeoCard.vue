@@ -14,7 +14,7 @@
                 <p class="google-title w-full text-left whitespace-normal">
                     {{ title }}
                 </p>
-                <small class="google-link w-full text-left break-words">https://karenbranham.beachybeach.com</small>
+                <small class="google-link w-full text-left break-words">{{ siteUrl }}</small>
                 <p class="w-full google-description border-t md:border-0 pt-2 md:pt-0 mt-3 md:mt-1">
                     {{ description }}
                 </p>
@@ -49,6 +49,12 @@
 
 <script>
 export default {
+    props: {
+        siteUrl: {
+            type: String,
+            default: ''
+        }
+    },
     data () {
         return {
             id: 0,

@@ -46,7 +46,7 @@ class User extends Authenticatable
      */
     public function scopeRealtor($query)
     {
-        return $query->where('is_realtor', true)->with('avatar')->first();
+        return $query->where('is_realtor', true)->with('avatar')->with('mls_numbers')->first();
     }
 
     /**
@@ -57,5 +57,10 @@ class User extends Authenticatable
     public function avatar()
     {
         return $this->hasOne(Avatar::class);
+    }
+
+    public function mls_numbers()
+    {
+        return $this->hasMany(MlsNumber::class);
     }
 }

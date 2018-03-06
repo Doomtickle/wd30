@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <section class="flex hero lg:h-64 bg-brand-darker py-4 bg-image-full" style="background-image: url('https://beachybeach.com/wp-content/themes/kmaidx/img/beachy-illustration.jpg')">
+    <section class="flex lg:h-64 bg-brand-darker py-4 bg-image-full" style="background-image: url('https://beachybeach.com/wp-content/themes/kmaidx/img/beachy-illustration.jpg')">
         @include('partials.quick-search')
     </section>
     <section id="about" class="about bg-white py-8 lg:py-16 xl:py-24">

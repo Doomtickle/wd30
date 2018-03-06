@@ -29,7 +29,7 @@
                 </div>
                 <div class="listing-map w-full px-1 lg:px-4">
                     <div class="border-b-2 border-secondary-light mx-1 my-4 shadow">
-                        <google-map :latitude="{{ $property->latitude }}" :longitude="{{ $property->longitude }}" :zoom="15" />
+                        <google-map :latitude="{{ $property->latitude }}" :longitude="{{ $property->longitude }}" :zoom="15" api="{{ config('google.api_key') }}" />
                     </div>
                 </div>
                 @include('partials.disclaimer')

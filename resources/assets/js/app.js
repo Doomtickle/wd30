@@ -27,7 +27,9 @@ const app = new Vue({
             body: null
         }),
         selected: 'leads',
-        activeLeadsCount: 0
+        activeLeadsCount: 0,
+        archivedLeadsCount: 0,
+        viewType: 'grid'
     },
     computed: {
         boilerplate: function () {
@@ -51,6 +53,9 @@ const app = new Vue({
                 .then(response => {
                     this.activeLeadsCount = response.data;
                 });
+        },
+        switchView(){
+            this.viewType = (this.viewType === 'map' || this.viewType === '' ? 'grid' : 'map');
         }
     }
 });

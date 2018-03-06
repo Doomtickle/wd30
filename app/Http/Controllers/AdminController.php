@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Facades\KeriganSolutions\Drone\Mothership;
+use App\MlsNumber;
 
 class AdminController extends Controller
 {
@@ -21,6 +22,7 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('installed');
     }
 
     /**
@@ -32,7 +34,7 @@ class AdminController extends Controller
     {
         $user         = Auth::user();
         $defaultPhoto = $user->default_photo != '' ? $user->default_photo : Realtor::PLACEHOLDER_PHOTO;
-        $avatarPath   = Avatar::where('user_id', 1)
+        $avatarPath   = Avatar::where('user_id', $user->id)
                             ->exists() ? Avatar::first()->path
                             : $defaultPhoto;
 
@@ -46,8 +48,6 @@ class AdminController extends Controller
      */
     public function myProperties()
     {
-        $user = User::realtor();
-
-        return Mothership::agentListingsWithAnalytics($user->mls_id);
+        return Mothership::agentListingsWithAnalytics(MlsNumber::toString());
     }
 }

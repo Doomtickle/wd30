@@ -49,13 +49,11 @@ class Installer
     {
         $cell_phone   = $request->has('cell_phone') ? $request->cell_phone : '';
         $office_phone = $request->has('office_phone') ? $request->office_phone : '';
-        $mlsString    = $request->has('mls_id') ? implode('|', $request->mls_id) : '';
         $photo        = $request->has('photo') && $request->photo[0]['url'] ? $request->photo[0]['url'] : '';
         $address      = self::buildAddress($request);
         $user         = User::first();
 
         $user->update([
-            'mls_id'        => $mlsString,
             'cell_phone'    => $cell_phone,
             'office_phone'  => $office_phone,
             'primary_phone' => $cell_phone,
@@ -63,6 +61,15 @@ class Installer
             'is_realtor'    => true,
             'address'       => $address
         ]);
+
+        if ($request->has('mls_id')) {
+            foreach ($request->mls_id as $id) {
+                MlsNumber::create([
+                    'user_id' => $user->id,
+                    'mls_id' => $id
+                ]);
+            }
+        }
     }
     protected static function buildAddress(Request $request)
     {

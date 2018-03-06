@@ -1,16 +1,11 @@
 <template>
-    <div class="container mx-auto">
-        <div class="lead-controls flex justify-between items-center py-2 flex-wrap">
-            <lead-pagination
-                @page="page"
-                :pagination="pagination"
-                class="flex-1 w-full md:w-auto"
-            />
+    <div>
+        <div class="lead-controls flex flex-col justify-between items-center py-2 flex-wrap">
             <lead-filters
                 @toggle="filter"
                 :active-filter="activeFilter"
                 :important-filter="importantFilter"
-                class="flex-1 w-full md:max-w-xs"
+                class="flex w-full flex-wrap justify-center"
             />
         </div>
         <lead
