@@ -17,20 +17,19 @@
             </div>
         </div>
     </section>
+    @if(count($realtor->listings) > 0)
     <section id="featured-listings" class="featured-listings bg-brand-dark py-8 lg:py-16 xl:py-24">
         <div class="container mx-auto flex flex-wrap items-center justify-center py-2">
-            @if(count($realtor->listings) > 0)
+
             <h2 class="text-white w-full text-center pb-4 text-3xl">
                 {{ $realtor->data->name }}'s Listings
             </h2>
             <featured-properties
                     class="flex flex-wrap w-full items-center justify-center"
                     :properties="{{ json_encode($realtor->listings) }}" ></featured-properties>
-            @else
-                <h2 class="text-white text-center pb-4">Check back later for my featured listings!</h2>
-            @endif
         </div>
     </section>
+    @endif
     @if(config('modules.facebook') && $realtor->data->fb_page_id && $realtor->data->fb_access_token)
         <section class="bg-grey-lightest py-8 lg:py-16 xl:py-24">
             <div class="container flex flex-wrap items-center justify-center mx-auto py-2">

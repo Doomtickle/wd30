@@ -1,8 +1,3 @@
-@foreach ($_GET as $key => $value)
-    @if(isset($_GET[$key]))
-        <input type="hidden" name="{{ $key }}" value="{{ $value }}">
-    @endif
-@endforeach
 @if(isset($_GET['omni']))
     <input type="hidden" name="omniField" value="{{ $_GET['omni'] }}" >
 @endif
@@ -34,7 +29,11 @@
     <input type="hidden" name="pool" value="{{ $_GET['pool'] }}" >
 @endif
 @if(isset($_GET['status']) && !empty($_GET['status']))
-    @foreach($_GET['status'] as $status)
-        <input type="hidden" name="status[]" value="{{ $status }}" >
-    @endforeach
+    @php
+    $i = 0;
+    foreach($_GET['status'] as $status){
+        echo '<input type="hidden" name="status[]" value="'.$status[$i].'" >';
+        $i++;
+    }
+    @endphp
 @endif
