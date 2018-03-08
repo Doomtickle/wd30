@@ -19,17 +19,17 @@
                         <div class="flex border-grey-lighter border-t border-b py-3 flex-wrap">
                             <div class="flex-auto w-full md:w-1/3 lg:w-1/2">
                                 <div class="flex py-1 flex-wrap">
-                                    <min-price class="flex-auto relative p-2 w-full sm:w-1/2 md:w-full lg:w-1/2"></min-price>
-                                    <max-price class="flex-auto relative p-2 w-full sm:w-1/2 md:w-full lg:w-1/2"></max-price>
-                                    <total-sqft class="flex-auto relative p-2 w-full sm:w-1/2 md:w-full lg:w-1/2"></total-sqft>
-                                    <acreage class="flex-auto relative p-2 w-full sm:w-1/2 md:w-full lg:w-1/2"></acreage>
-                                    <status class="flex mt-2 mx-2 w-full border border-grey-light shadow rounded flex-wrap h-auto sm:h-10 align-middle overflow-hidden"></status>
+                                    <min-price-field class="flex-auto relative p-2 w-full sm:w-1/2 md:w-full lg:w-1/2"></min-price-field>
+                                    <max-price-field class="flex-auto relative p-2 w-full sm:w-1/2 md:w-full lg:w-1/2"></max-price-field>
+                                    <total-sqft-field class="flex-auto relative p-2 w-full sm:w-1/2 md:w-full lg:w-1/2"></total-sqft-field>
+                                    <acreage-field class="flex-auto relative p-2 w-full sm:w-1/2 md:w-full lg:w-1/2"></acreage-field>
+                                    <status-field class="flex mt-2 mx-2 w-full border border-grey-light shadow rounded flex-wrap h-auto sm:h-10 align-middle overflow-hidden"></status-field>
                                 </div>
                             </div>
                             <div class="flex-auto relative p-2 w-full md:w-3/4 lg:w-1/2">
-                                <bedrooms class="flex my-1 border border-grey-light shadow rounded flex-wrap h-auto sm:h-10 align-middle overflow-hidden"></bedrooms>
-                                <bathrooms class="flex mt-4 border border-grey-light shadow rounded flex-wrap h-auto sm:h-10 align-middle overflow-hidden"></bathrooms>
-                                <features class="flex mt-4 border border-grey-light shadow rounded flex-wrap h-auto sm:h-10 align-middle overflow-hidden"></features>
+                                <bedrooms-field class="flex my-1 border border-grey-light shadow rounded flex-wrap h-auto sm:h-10 align-middle overflow-hidden"></bedrooms-field>
+                                <bathrooms-field class="flex mt-4 border border-grey-light shadow rounded flex-wrap h-auto sm:h-10 align-middle overflow-hidden"></bathrooms-field>
+                                <features-field class="flex mt-4 border border-grey-light shadow rounded flex-wrap h-auto sm:h-10 align-middle overflow-hidden"></features-field>
                             </div>
                         </div>
                     </div>

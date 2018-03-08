@@ -6,8 +6,8 @@
         {{ csrf_field() }}
         <omni-bar class="flex-auto relative px-2 py-2 w-full sm:w-full md:w-3/5 text-left"></omni-bar>
         <property-type class="flex-auto relative px-2 py-2 w-full sm:w-1/3 md:w-2/5"></property-type>
-        <min-price class="flex-auto relative px-2 py-2 w-full sm:w-1/3 md:w-2/5"></min-price>
-        <max-price class="flex-auto relative px-2 py-2 w-full sm:w-1/3 md:w-2/5"></max-price>
+        <min-price-field class="flex-auto relative px-2 py-2 w-full sm:w-1/3 md:w-2/5"></min-price-field>
+        <max-price-field class="flex-auto relative px-2 py-2 w-full sm:w-1/3 md:w-2/5"></max-price-field>
         <div class="flex-auto px-2 py-2 xs:w-full w-full md:w-1/5">
             <button class="button-brand w-full h-10" type="submit" >Submit</button>
         </div>
