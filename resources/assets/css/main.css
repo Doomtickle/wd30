@@ -99,6 +99,15 @@
     @apply .rounded
 }
 
+.grey-gradient {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2e92b1+0,37cbf0+100 */
+    background: rgb(46,146,177); /* Old browsers */
+    background: -moz-linear-gradient(-45deg, rgba(46,146,177,1) 0%, rgba(55,203,240,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, rgba(46,146,177,1) 0%,rgba(55,203,240,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgba(46,146,177,1) 0%,rgba(55,203,240,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e92b1', endColorstr='#37cbf0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
 .custom-input-container {
     align-items: center;
     position: relative;

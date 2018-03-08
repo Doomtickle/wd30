@@ -34,9 +34,9 @@
         </div>
     </section>
     @if(config('modules.facebook') && $realtor->data->fb_page_id && $realtor->data->fb_access_token)
-        <section class="bg-secondary py-8 lg:py-16 xl:py-24">
+        <section class="bg-grey-lightest py-8 lg:py-16 xl:py-24">
             <div class="container flex flex-wrap items-center justify-center mx-auto py-2">
-                <h2 class="text-white w-full text-center pb-4 text-3xl">
+                <h2 class="text-brand w-full text-center pb-4 text-3xl">
                     Latest News
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +58,7 @@
         </section>
     @endif
     @if(config('modules.youtube') && $realtor->data->youtube_channel_id)
-        <section class="bg-secondary-lighter py-8 lg:py-16 xl:py-24">
+        <section class="bg-grey-dark py-8 lg:py-16 xl:py-24">
             <div class="container flex flex-wrap items-center justify-center mx-auto py-2">
                 <h2 class="text-white text-center pb-4 text-3xl">
                     Featured Videos

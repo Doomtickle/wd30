@@ -1,32 +1,54 @@
 <template>
     <div>
         <div class="relative bg-white shadow-md md:rounded overflow-hidden border-b-4 border-brand hover:border-secondary h-full">
-            <a :href="post.permalink_url" class="absolute pin hover:shadow-inner z-20" v-if="post.type != 'video'"></a>
-            <div class="md:h-48 md:overflow-hidden" v-if="post.type != 'video'">
-                <img v-if="post.full_picture != null" class="w-auto h-auto min-h-full min-w-full" :src="post.full_picture" >
+            <a :href="post.permalink_url" class="absolute pin hover:shadow-inner z-20" v-if="post.type !== 'video'"></a>
+            <div v-if="!textFeatured">
+                <div class="md:h-48 md:overflow-hidden" v-if="post.type !== 'video'">
+                    <img v-if="post.full_picture != null" class="w-auto h-auto min-h-full min-w-full"
+                         :src="post.full_picture">
+                </div>
+                <div class="md:h-48 md:overflow-hidden w-full" v-if="post.type === 'video'">
+                    <iframe
+                            :src="post.link"
+                            style="border:none;overflow:hidden"
+                            scrolling="no"
+                            frameborder="0"
+                            allowTransparency="true"
+                            allowFullScreen="true"
+                            width="100%"
+                            height="190">
+                    </iframe>
+                </div>
             </div>
-            <div class="md:h-48 md:overflow-hidden w-full" v-if="post.type == 'video'">
-                <iframe
-                        :src="post.link"
-                        style="border:none;overflow:hidden"
-                        scrolling="no"
-                        frameborder="0"
-                        allowTransparency="true"
-                        allowFullScreen="true"
-                        width="100%"
-                        height="190">
-
-                </iframe>
-            </div>
-            <div class="py-2 px-2">
-                <div class="h-32 flex flex-col justify-center align-middle">
-                    <p class="p-2 text-grey-darker text-sm text-left">
+            <div class="pb-2"
+                 :class="{
+                    'grey-gradient': textFeatured
+                 }"
+            >
+                <div class="flex flex-col justify-center align-middle mb-2"
+                     :class="{
+                        'h-24': !textFeatured,
+                        'h-72': textFeatured
+                     }"
+                >
+                    <p class="p-4 px-6 text-left"
+                       :class="{
+                          'text-sm': !textFeatured,
+                          'text-2xl': textFeatured,
+                          'text-grey-darker': !textFeatured,
+                          'text-white': textFeatured
+                       }"
+                    >
                         {{ message }}
                     </p>
                 </div>
                 <div class="flex flex-wrap items-center justify-center">
                     <a class="facebook text-center w-full no-underline" :href="post.permalink_url" target="_blank">
-                        <p class="text-xs text-grey-darker text-center w-full pb-2">
+                        <p class="text-xs text-center w-full pb-2"
+                           :class="{
+                                'text-grey-darker': !textFeatured,
+                                'text-white': textFeatured
+                             }">
                             {{ cta }}
                         </p>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.02 34.02" class="h-4" style="enable-background:new 0 0 50 50; width: 50px;" xml:space="preserve">
@@ -35,40 +57,47 @@
                         </svg>
                     </a>
                 </div>
-                <div class="mls text-center mt-3">
-                    <p class="text-grey-dark text-xs">Posted: {{ post.diff }}</p>
+                <div class="mls text-center mt-3 opacity-75"
+                     :class="{
+                        'text-grey-darker': !textFeatured,
+                        'text-white': textFeatured
+                     }">
+                    <p class="text-xs">Posted {{ post.diff }}</p>
                 </div>
             </div>
         </div>
     </div>
 </template>
 <script>
-export default {
-    props: {
-        post: {
-            type: Object,
-            default: this.post
-        }
-    },
-    computed: {
-        message: function () {
-            let limit = 240;
-            let truncated = '';
-
-            if (this.post.message.length > limit) {
-                truncated = this.post.message.substring(0, limit - 9)
-                return truncated + '...';
+    export default {
+        props: {
+            post: {
+                type: Object,
+                default: this.post
             }
-
-            return this.post.message;
         },
-        cta: function () {
-            if (this.post.type == 'video') {
-                return 'View on Facebook';
-            }
+        computed: {
+            textFeatured: function () {
+                return this.post.type !== 'video' && this.post.full_picture === undefined;
+            },
+            message: function () {
+                let limit = 240;
+                let truncated = '';
 
-            return 'Read on Facebook';
+                if (this.post.message.length > limit) {
+                    truncated = this.post.message.substring(0, limit - 9);
+                    return truncated + '...';
+                }
+
+                return this.post.message;
+            },
+            cta: function () {
+                if (this.post.type === 'video') {
+                    return 'View on Facebook';
+                }
+
+                return 'Read on Facebook';
+            }
         }
     }
-}
 </script>

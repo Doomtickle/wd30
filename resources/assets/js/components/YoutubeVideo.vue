@@ -33,14 +33,14 @@
 
                 </iframe>
             </div>
-            <div class="py-2 px-2">
+            <div class="pb-2">
                 <div class="h-32 flex flex-col justify-center align-middle">
-                    <p class="p-2 text-grey-darker text-sm text-left">
+                    <p class="p-4 px-6 text-grey-darker text-sm text-left">
                         {{ video.snippet.description }}
                     </p>
                 </div>
-                <div class="mls text-center mt-3">
-                    <p class="text-grey-dark text-xs">Posted: {{ video.snippet.publishedAt }}</p>
+                <div class="mls text-center mt-3 opacity-75 text-grey-dark">
+                    <p class="text-xs">Posted: {{ video.snippet.publishedAt }}</p>
                 </div>
             </div>
         </div>

@@ -3450,6 +3450,10 @@ button,
   height: 32rem;
 }
 
+.h-72 {
+  height: 18rem;
+}
+
 .h-auto {
   height: auto;
 }
@@ -6323,6 +6327,13 @@ button,
 
 .omni-results-closed {
   border-radius: .25rem;
+}
+
+.grey-gradient {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2e92b1+0,37cbf0+100 */
+  background: rgb(46, 146, 177); /* Old browsers */ /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, rgba(46, 146, 177, 1) 0%, rgba(55, 203, 240, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e92b1', endColorstr='#37cbf0', GradientType=1); /* IE6-9 fallback on horizontal gradient */
 }
 
 .custom-input-container {
@@ -9249,6 +9260,10 @@ select::-ms-expand {
 
   .sm\:h-64 {
     height: 32rem;
+  }
+
+  .sm\:h-72 {
+    height: 18rem;
   }
 
   .sm\:h-auto {
@@ -14698,6 +14713,10 @@ select::-ms-expand {
     height: 32rem;
   }
 
+  .md\:h-72 {
+    height: 18rem;
+  }
+
   .md\:h-auto {
     height: auto;
   }
@@ -20145,6 +20164,10 @@ select::-ms-expand {
     height: 32rem;
   }
 
+  .lg\:h-72 {
+    height: 18rem;
+  }
+
   .lg\:h-auto {
     height: auto;
   }
@@ -25590,6 +25613,10 @@ select::-ms-expand {
 
   .xl\:h-64 {
     height: 32rem;
+  }
+
+  .xl\:h-72 {
+    height: 18rem;
   }
 
   .xl\:h-auto {
