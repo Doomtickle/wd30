@@ -8,7 +8,7 @@
             <polygon fill="none" class="text-brand stroke-current" stroke-width="4" stroke-miterlimit="10" points="142.9,118.6 101.3,150.2 59.7,118.6 101.3,87" ></polygon>
         </svg>
         </div>
-        <p class="text-grey-darkest text-lg">{{ value }}</p>
+        <p class="text-grey-darkest text-lg max-w-icon break-words truncate">{{ value }}</p>
         <p class="text-grey-dark text-xs text-uppercase">lot size</p>
     </div>
 </template>

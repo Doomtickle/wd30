@@ -572,8 +572,9 @@ module.exports = {
     '40': '10rem',
     '44': '11rem',
     '48': '12rem',
+    '52': '14rem',
     '64': '32rem',
-    '72': '18rem',
+    '72': '20rem',
     'full': '100%',
     'screen': '100vh',
     'avatar': '26rem'

@@ -1,9 +1,9 @@
 <template>
     <div>
         <div class="relative bg-white shadow-md md:rounded overflow-hidden border-b-4 border-brand hover:border-secondary h-full">
-            <div class="md:h-48 md:overflow-hidden" v-if="! playVideo">
+            <div class="md:h-52 md:overflow-hidden" v-if="! playVideo">
                 <div
-                class="absolute flex w-full h-48 items-center justify-center text-red"
+                class="absolute flex w-full h-52 items-center justify-center text-red"
                 @click="getVideo"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48" version="1.1" width="48px" height="48px">
@@ -19,7 +19,7 @@
                     :src="thumbnail"
                 >
             </div>
-            <div class="md:h-48 md:overflow-hidden w-full" v-if="playVideo">
+            <div class="md:h-52 md:overflow-hidden w-full" v-if="playVideo">
                 <iframe
                         :src="src"
                         style="border:none;overflow:hidden"
@@ -29,7 +29,7 @@
                         allowTransparency="true"
                         allowFullScreen="true"
                         width="100%"
-                        height="190">
+                        height="225">
 
                 </iframe>
             </div>

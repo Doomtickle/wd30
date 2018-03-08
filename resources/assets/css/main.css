@@ -99,6 +99,14 @@
     @apply .rounded
 }
 
+.max-w-icon {
+    max-width: 8rem;
+}
+
+.min-w-mobile {
+    min-width: 300px;
+}
+
 .grey-gradient {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2e92b1+0,37cbf0+100 */
     background: rgb(46,146,177); /* Old browsers */

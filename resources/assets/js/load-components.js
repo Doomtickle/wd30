@@ -7,6 +7,7 @@ Vue.component('contact-form', require('./components/ContactForm.vue'));
 Vue.component('content-card', require('./components/ContentCard.vue'));
 Vue.component('facebook-feed', require('./components/FacebookFeed.vue'));
 Vue.component('features-field', require('./components/fields/Features.vue'));
+Vue.component('featured-properties', require('./components/FeaturedProperties.vue'));
 Vue.component('google-map', require('./components/GoogleMap.vue'));
 Vue.component('install-form', require('./components/InstallForm.vue'));
 Vue.component('lead', require('./components/Lead.vue'));

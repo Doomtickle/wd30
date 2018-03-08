@@ -3,11 +3,11 @@
         <div class="relative bg-white shadow-md md:rounded overflow-hidden border-b-4 border-brand hover:border-secondary h-full">
             <a :href="post.permalink_url" class="absolute pin hover:shadow-inner z-20" v-if="post.type !== 'video'"></a>
             <div v-if="!textFeatured">
-                <div class="md:h-48 md:overflow-hidden" v-if="post.type !== 'video'">
+                <div class="md:h-52 md:overflow-hidden" v-if="post.type !== 'video'">
                     <img v-if="post.full_picture != null" class="w-auto h-auto min-h-full min-w-full"
                          :src="post.full_picture">
                 </div>
-                <div class="md:h-48 md:overflow-hidden w-full" v-if="post.type === 'video'">
+                <div class="md:h-52 md:overflow-hidden w-full" v-if="post.type === 'video'">
                     <iframe
                             :src="post.link"
                             style="border:none;overflow:hidden"
@@ -16,7 +16,7 @@
                             allowTransparency="true"
                             allowFullScreen="true"
                             width="100%"
-                            height="190">
+                            height="225">
                     </iframe>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                     <p class="p-4 px-6 text-left"
                        :class="{
                           'text-sm': !textFeatured,
-                          'text-2xl': textFeatured,
+                          'text-3xl': textFeatured,
                           'text-grey-darker': !textFeatured,
                           'text-white': textFeatured
                        }"

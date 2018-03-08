@@ -23,11 +23,9 @@
             <h2 class="text-white w-full text-center pb-4 text-3xl">
                 {{ $realtor->data->name }}'s Listings
             </h2>
-            <div class="flex flex-wrap items-center justify-center">
-                @foreach ($realtor->listings as $listing)
-                    @include('partials.mini-listing')
-                @endforeach
-            </div>
+            <featured-properties
+                    class="flex flex-wrap w-full items-center justify-center"
+                    :properties="{{ json_encode($realtor->listings) }}" ></featured-properties>
             @else
                 <h2 class="text-white text-center pb-4">Check back later for my featured listings!</h2>
             @endif
