@@ -19,7 +19,7 @@
                     :latitude="{{ $properties->data[0]->latitude }}"
                     :longitude="{{ $properties->data[0]->longitude }}"
                     :data-params="{{ $searchParams }}"
-                    :zoom="15"
+                    :zoom="16"
                     api="{{ config('google.api_key') }}"
                     class="border-b-2 border-secondary-light"
             ></map-search>
