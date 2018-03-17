@@ -22,7 +22,7 @@
 </template>
 
 <script>
-
+import GeoLocator from '../services/geolocator.service.js';
 import GoogleMap from '../services/google-maps.service.js';
 
 export default {
@@ -40,8 +40,8 @@ export default {
             default: this.zoom
         },
         dataParams: {
-            type: Array,
-            default: []
+            type: Object,
+            default: {}
         },
         api: {
             type: String,
@@ -68,10 +68,11 @@ export default {
                 longitude: this.longitude
             },
             mapElement: this.$refs.map,
-            markers: []
+            markers: [],
+            origin: {}
         };
         this.buildQuery();
-        this.getMarkers();
+        this.setCenter();
     },
     methods: {
         buildQuery() {
@@ -89,6 +90,28 @@ export default {
                 }
             }
             ///////////////////////////////////
+        },
+        setCenter(){
+            if(this.dataParams.length === 0){
+                this.getUserLocation();
+            }else{
+                this.getMarkers();
+            }
+        },
+        getUserLocation() {
+            this.isLoading = true;
+            let vm = this;
+            let geo = new GeoLocator();
+            if (Object.keys(vm.config.origin).length === 0) {
+                geo.getLocation()
+                  .then(position => {
+                      vm.config.center = position;
+                      vm.getMarkers();
+                  })
+                  .catch(e => {
+                      this.errors.push(e)
+                  })
+            }
         },
         renderMap() {
             let vm = this;

@@ -5222,33 +5222,30 @@ var GoogleMap = function () {
             }
         }
     }, {
-        key: 'resetIcons',
-        value: function resetIcons(markers) {
-            for (var i = 0; i < markers.length; i++) {
-                markers[i].setIcon({
-                    path: 'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
-                    scale: .7,
-                    strokeWeight: 3,
-                    strokeColor: '#FFF',
-                    strokeOpacity: .5,
-                    fillColor: '#555',
-                    fillOpacity: 1,
-                    rotation: 0
-                });
-            }
-        }
-    }, {
         key: 'getDirections',
-        value: function getDirections(locations, mapData, button, panel) {
+        value: function getDirections(button, panel) {
+            var _this3 = this;
+
             __WEBPACK_IMPORTED_MODULE_0_google_maps___default.a.KEY = this.apiKey;
             __WEBPACK_IMPORTED_MODULE_0_google_maps___default.a.load(function (google) {
-                var directionsDisplay = new google.maps.DirectionsRenderer({
-                    origin: new google.maps.LatLng(locations.origin.latitude, locations.origin.longitude),
-                    destination: new google.maps.LatLng(locations.center.latitude, locations.center.longitude),
-                    travelMode: 'DRIVING'
+
+                var config = _this3.config;
+                var mapData = _this3.map;
+
+                mapData.map = new google.maps.Map(config.mapElement, {
+                    zoom: config.zoom,
+                    center: new google.maps.LatLng(config.center.latitude, config.center.longitude),
+                    disableDefaultUI: true,
+                    zoomControl: true,
+                    scaleControl: true,
+                    maxZoom: 20
                 });
 
-                mapData.bounds.extend(directionsDisplay.destination);
+                var directionsDisplay = new google.maps.DirectionsRenderer({
+                    origin: new google.maps.LatLng(config.origin.latitude, config.origin.longitude),
+                    destination: new google.maps.LatLng(config.center.latitude, config.center.longitude),
+                    travelMode: 'DRIVING'
+                });
 
                 var directionsService = new google.maps.DirectionsService();
                 directionsDisplay.setPanel(panel);
@@ -5263,7 +5260,6 @@ var GoogleMap = function () {
                         return window.alert('Directions request failed due to ' + status);
                     }
                 });
-                mapData.map.fitBounds(mapData.bounds);
                 directionsDisplay.setMap(mapData.map);
             });
         }
@@ -43680,8 +43676,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -43753,7 +43747,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var geo = new __WEBPACK_IMPORTED_MODULE_0__services_geolocator_service_js__["a" /* default */]();
             if (Object.keys(vm.config.origin).length === 0) {
                 geo.getLocation().then(function (position) {
-                    vm.config.center = position;
+                    vm.config.origin = position;
                     vm.openDirections();
                 }).catch(function (e) {
                     _this2.errors.push(e);
@@ -43766,11 +43760,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.isLoading = false;
             this.showDirections = true;
             var vm = this;
-            var locations = {
-                origin: vm.config.origin,
-                destination: vm.config.center
-            };
-            new __WEBPACK_IMPORTED_MODULE_1__services_google_maps_service_js__["a" /* default */](vm.config).getDirections(locations, this.renderedMap, this.$refs.directionsButton, this.$refs.directionsPanel);
+
+            console.log(this.errors);
+
+            new __WEBPACK_IMPORTED_MODULE_1__services_google_maps_service_js__["a" /* default */](vm.config, vm.api).getDirections(this.$refs.directionsButton, this.$refs.directionsPanel);
         },
         closeDirections: function closeDirections() {
             this.showDirections = false;
@@ -48562,7 +48555,7 @@ exports = module.exports = __webpack_require__(44)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48573,7 +48566,8 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_google_maps_service_js__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_geolocator_service_js__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_google_maps_service_js__ = __webpack_require__(137);
 //
 //
 //
@@ -48616,8 +48610,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             default: this.zoom
         },
         dataParams: {
-            type: Array,
-            default: []
+            type: Object,
+            default: {}
         },
         api: {
             type: String,
@@ -48644,10 +48638,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 longitude: this.longitude
             },
             mapElement: this.$refs.map,
-            markers: []
+            markers: [],
+            origin: {}
         };
         this.buildQuery();
-        this.getMarkers();
+        this.setCenter();
     },
 
     methods: {
@@ -48667,9 +48662,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
             ///////////////////////////////////
         },
+        setCenter: function setCenter() {
+            if (this.dataParams.length === 0) {
+                this.getUserLocation();
+            } else {
+                this.getMarkers();
+            }
+        },
+        getUserLocation: function getUserLocation() {
+            var _this = this;
+
+            this.isLoading = true;
+            var vm = this;
+            var geo = new __WEBPACK_IMPORTED_MODULE_0__services_geolocator_service_js__["a" /* default */]();
+            if (Object.keys(vm.config.origin).length === 0) {
+                geo.getLocation().then(function (position) {
+                    vm.config.center = position;
+                    vm.getMarkers();
+                }).catch(function (e) {
+                    _this.errors.push(e);
+                });
+            }
+        },
         renderMap: function renderMap() {
             var vm = this;
-            new __WEBPACK_IMPORTED_MODULE_0__services_google_maps_service_js__["a" /* default */](vm.config, vm.api).load().then(function (rendered) {
+            new __WEBPACK_IMPORTED_MODULE_1__services_google_maps_service_js__["a" /* default */](vm.config, vm.api).load().then(function (rendered) {
                 vm.renderedMap = rendered;
                 window.addEventListener('marker_updated', function (event) {
                     vm.getProperty(event.detail.mls_account);
@@ -48677,7 +48694,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         getMarkers: function getMarkers() {
-            var _this = this;
+            var _this2 = this;
 
             // TODO: Use a service to perform this action
             /////////////////////////////////////////////
@@ -48688,19 +48705,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 vm.renderMap();
                 vm.isLoading = false;
             }).catch(function (e) {
-                _this.errors.push(e);
+                _this2.errors.push(e);
             });
             /////////////////////////////////////////////
         },
         getProperty: function getProperty(mlsAccount) {
-            var _this2 = this;
+            var _this3 = this;
 
             var vm = this;
             window.axios.get('/full-listing/' + mlsAccount).then(function (response) {
                 vm.selectedProperty = response.data;
                 vm.propOpen = true;
             }).catch(function (e) {
-                _this2.errors.push(e);
+                _this3.errors.push(e);
             });
         }
     }
@@ -52983,8 +53000,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
         dataParams: {
-            type: Array,
-            default: []
+            type: Object,
+            default: {}
         }
     },
     data: function data() {

@@ -155,31 +155,27 @@ export default class GoogleMap {
         }
     }
 
-    resetIcons(markers) {
-        for (let i = 0; i < markers.length; i++) {
-            markers[i].setIcon({
-                path: 'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
-                scale: .7,
-                strokeWeight: 3,
-                strokeColor: '#FFF',
-                strokeOpacity: .5,
-                fillColor: '#555',
-                fillOpacity: 1,
-                rotation: 0
-            });
-        }
-    }
-
-    getDirections(locations, mapData, button, panel) {
+    getDirections(button, panel) {
         GoogleMapsLoader.KEY = this.apiKey;
         GoogleMapsLoader.load(google => {
-            let directionsDisplay = new google.maps.DirectionsRenderer({
-                origin: new google.maps.LatLng(locations.origin.latitude, locations.origin.longitude),
-                destination: new google.maps.LatLng(locations.center.latitude, locations.center.longitude),
-                travelMode: 'DRIVING',
+
+            let config = this.config;
+            let mapData = this.map;
+
+            mapData.map = new google.maps.Map(config.mapElement, {
+                zoom: config.zoom,
+                center: new google.maps.LatLng(config.center.latitude, config.center.longitude),
+                disableDefaultUI: true,
+                zoomControl: true,
+                scaleControl: true,
+                maxZoom: 20
             });
 
-            mapData.bounds.extend(directionsDisplay.destination);
+            let directionsDisplay = new google.maps.DirectionsRenderer({
+                origin: new google.maps.LatLng(config.origin.latitude, config.origin.longitude),
+                destination: new google.maps.LatLng(config.center.latitude, config.center.longitude),
+                travelMode: 'DRIVING',
+            });
 
             let directionsService = new google.maps.DirectionsService();
             directionsDisplay.setPanel(panel);
@@ -194,7 +190,6 @@ export default class GoogleMap {
                     return window.alert('Directions request failed due to ' + status);
                 }
             });
-            mapData.map.fitBounds(mapData.bounds);
             directionsDisplay.setMap(mapData.map);
         });
     }

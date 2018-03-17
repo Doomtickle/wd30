@@ -18,8 +18,8 @@
     export default {
         props: {
             dataParams: {
-                type: Array,
-                default: []
+                type: Object,
+                default: {}
             }
         },
         data() {
