@@ -56,6 +56,7 @@
             ></my-properties>
             <bio-card
                     :data-user="user"
+                    :data-content="content"
                     v-on:submit-button-clicked="sbc"
                     v-if="selected === 'settings'"
                     class="container mx-auto bg-white flex flex-wrap justify-center mb-8 mt-4"

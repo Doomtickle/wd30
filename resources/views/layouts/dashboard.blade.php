@@ -35,7 +35,7 @@
                 </div>
             </div>
         </nav>
-        <div class='w-full bg-image-full bg-fixed px-1 pt-16 pb-4' style='background-image: url("https://beachybeach.com/wp-content/themes/kmaidx/img/beachy-illustration.jpg");'>
+        <div class='w-full bg-image-full bg-fixed px-1 pt-16 pb-4' style='background-image: url("{{ $header_photo_path }}");'>
             @yield('top')
         </div>
         <div class='bg-beachy-blue pb-16 shadow-inner'>

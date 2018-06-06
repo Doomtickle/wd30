@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Realtor;
+use App\Content;
 use Carbon\Carbon;
 use Facades\App\Feature;
 use Facades\App\Property;
@@ -21,11 +22,14 @@ class PropertySearchController extends Controller
      */
     public function index(Request $request)
     {
-        $realtor    = (new Realtor())->getProfile();
-        $properties = json_encode(Mothership::search($request));
+        $realtor      = (new Realtor())->getProfile();
+        $properties   = json_encode(Mothership::search($request));
         $searchParams = json_encode($request->all());
+        
+        $content    = Content::first();
+        $header_photo_path = $content->header_photo_path != null ? asset('storage/'. $content->header_photo_path) : 'http://via.placeholder.com/1920x750';
 
-        return view('properties.index', compact('properties', 'realtor', 'searchParams'));
+        return view('properties.index', compact('properties', 'realtor', 'searchParams', 'header_photo_path'));
     }
 
     /**
@@ -41,6 +45,9 @@ class PropertySearchController extends Controller
         $openHouses = OpenHouse::extract($property->open_houses);
         $realtor    = (new Realtor())->getProfile();
 
+        $content    = Content::first();
+        $header_photo_path = $content->header_photo_path != null ? asset('storage/'. $content->header_photo_path) : 'http://via.placeholder.com/1920x750';
+
         return view(
             'properties.show',
             compact(
@@ -49,7 +56,8 @@ class PropertySearchController extends Controller
                 'features',
                 'property',
                 'openHouses',
-                'featuresCount'
+                'featuresCount',
+                'header_photo_path'
             )
         );
     }

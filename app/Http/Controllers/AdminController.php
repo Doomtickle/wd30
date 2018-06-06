@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Lead;
 use App\User;
 use App\Avatar;
+use App\Content;
 use App\Realtor;
 use App\MlsNumber;
 use Illuminate\Http\Request;
@@ -34,7 +35,10 @@ class AdminController extends Controller
         $user       = Auth::user();
         $avatarPath = $user->avatar_path != null ? asset('storage/'. $user->avatar_path): $user->default_photo;
 
-        return view('home', compact('user', 'avatarPath'));
+        $content    = Content::first();
+        $header_photo_path = $content->header_photo_path != null ? asset('storage/'. $content->header_photo_path) : 'http://via.placeholder.com/1920x750';
+
+        return view('home', compact('user', 'header_photo_path', 'avatarPath'));
     }
 
     /**

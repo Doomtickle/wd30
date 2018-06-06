@@ -6,7 +6,7 @@
             </div>
             <p class="hidden md:block px-2 mt-2 text-xl text-smoke-dark" v-if="! boilerplate">{{ user.name }}</p>
             <p class="block px-2 mt-2 text-xl text-smoke-dark" v-else>Your Name</p>
-            <p class="hidden md:block px-2 text-xs text-smoke-light">Beachy Beach Real Estate</p>
+            <p class="hidden md:block px-2 text-xs text-smoke-light">{{ user.company }}</p>
         </div>
         <div class="flex py-4 w-full md:w-3/5 bg-white items-center justify-center md:mt-12 mx-auto md:pr-8 flex-wrap rounded shadow md:shadow-none"><!--leading-tighter is a custom utility. Compensates for <br>.-->
             <div class="w-1/3 items-start mx-auto mb-4">

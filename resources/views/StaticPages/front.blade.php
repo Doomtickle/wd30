@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <section class="flex lg:h-64 bg-brand-darker py-4 bg-image-full" style="background-image: url('https://beachybeach.com/wp-content/themes/kmaidx/img/beachy-illustration.jpg')">
+    <section class="flex lg:h-64 bg-brand-darker py-4 bg-image-full" style="background-image: url('{{ asset('/storage/'. $content->header_photo_path) }}')">
         @include('partials.quick-search')
     </section>
     <section id="about" class="about bg-white py-8 lg:py-16 xl:py-24">
@@ -12,7 +12,9 @@
                     <a href="/property-search/" class="button-brand w-auto mt-4 no-underline" >Property Search</a>
                 </div>
                 <div class="flex-auto w-full md:w-1/4 px-3 justify-center text-center py-2">
+                    @if ($realtor->data->avatar_path != '')
                     <img src="{{ asset('/storage/'. $realtor->data->avatar_path) }}" class="border border-grey-darker rounded inline-block" >
+                    @endif
                 </div>
             </div>
         </div>

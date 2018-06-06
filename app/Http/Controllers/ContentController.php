@@ -29,7 +29,9 @@ class ContentController extends Controller
     {
         $content->update([
             'title' => $request->title,
-            'body'  => $request->body
+            'body'  => $request->body,
+            'broker_logo_path' => $request->broker_logo,
+            'header_photo_path' => $request->header_photo
         ]);
 
         return $content;

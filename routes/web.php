@@ -17,6 +17,8 @@ Route::get('/authenticate', 'AuthenticationController@show');
 Route::get('/archivedleads', 'ArchivedLeadsController@index');
 Route::get('/mylistings', 'RealtorPropertiesController@index');
 Route::get('/avatar', 'AvatarsController@index');
+Route::get('/broker-logo', 'BrokerLogoController@index');
+Route::get('/header-photo', 'HeaderPhotoController@index');
 Route::get('/leads/count', 'LeadsCountController@show');
 Route::get('/search', 'PropertySearchController@search');
 Route::get('/map-search', 'PropertySearchController@mapSearch');
@@ -29,6 +31,8 @@ Route::get('/modules/map', 'MapModuleController@show');
 Route::patch('/users/{id}', 'UsersController@update');
 
 Route::post('/avatar', 'AvatarsController@store');
+Route::post('/header-photo', 'HeaderPhotoController@store');
+Route::post('/broker-logo', 'BrokerLogoController@store');
 Route::post('/configure-install', 'InstallController@configure');
 Route::post('/finish-install', 'InstallController@complete');
 
