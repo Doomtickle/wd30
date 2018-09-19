@@ -1,7 +1,8 @@
 <template>
   <div class="w-full flex flex-wrap items-center">
-    <form class="w-full flex flex-wrap items-center">
-      <label :for="'blog_' + blog.id" class="w-1/6">
+    <form class="w-full flex flex-wrap items-center justify-center">
+      <label :for="'blog_' + blog.id" class="sm:w-1/2 md:w-1/6 cursor-pointer mb-2">
+        <span class="absolute inline-block p-1 px-2 text-sm border border-grey bg-grey-light text-grey-darker">Edit</span>
         <img 
           v-if="updatedImage !== ''" 
           :src="updatedImage" 
@@ -17,34 +18,36 @@
           @change="loadFile($event.target)"
         >
       </label>
-      <div class="w-5/6 flex flex-wrap">
+      <div class="w-full md:w-5/6 flex flex-wrap md:px-4">
         <input 
           v-if="isExpanded" 
           v-model="blog.title" 
           :class="{'border border-brand': editTitle}"
           type="text"  
-          class="w-full text-4xl pl-4 text-brand font-brand mb-4" 
+          class="w-full text-2xl md:text-3xl text-brand font-brand mb-2" 
           autofocus
         >
         <span 
           v-else 
-          class="w-5/6 text-5xl pl-4 text-brand font-brand mb-4" 
+          class="w-5/6 text-2xl md:text-3xl text-brand font-brand mb-2" 
           @click="toggleEditor" 
         >
           {{ blog.title }}
         </span>
-        <div class="w-full rounded flex flex-wrap justify-start items-end bg-grey-lighter py-4">
-          <button v-if="isExpanded" class="p-2 border border-brand w-1/4 mx-4 bg-secondary text-white text-md" @click.prevent="toggleEditor">Hide Content</button>
-          <button class="p-2 border border-brand w-1/4 mx-4 bg-red text-white text-md" @click.prevent="deleteBlog" >Delete</button>
+        <span class="w-full text-xs font-normal text-grey-dark py-2 text-left">Last updated: {{ diffForHumans(blog.updated_at) }}</span>
+        <div class="w-full rounded flex flex-wrap justify-between items-end bg-grey-lighter p-4">
+          <button v-if="isExpanded" class="p-2 border border-brand w-auto bg-secondary text-white text-md" @click.prevent="toggleEditor">Close Editor</button>
+          <button v-if="!isExpanded" class="p-2 border border-brand w-auto bg-secondary text-white text-md" @click.prevent="toggleEditor">Edit Post</button>
+          <button class="p-2 border border-red w-auto bg-red text-white text-md" @click.prevent="deleteBlog" >Delete</button>
         </div>
       </div>
-      <span class="w-full font-xs text-right">Last updated: {{ diffForHumans(blog.updated_at) }}</span>
+      
     </form>
-    <div v-if="isExpanded" class="w-full flex flex-wrap items-center" >
+    <div v-if="isExpanded" class="w-full font-normal flex text-black flex-wrap items-center py-4" >
       <wysiwyg v-model="blog.body" />
     </div>
     <div v-if="isExpanded" class="w-full flex justify-center items-center my-2">
-      <button class="bg-brand p-4 text-uppercase rounded w-1/3 text-white font-brand text-3xl" @click.prevent="updateBlog">Update</button>
+      <button class="bg-brand px-4 py-2 my-2 text-uppercase rounded w-auto text-white font-brand text-3xl" @click.prevent="updateBlog">Update Blog Post</button>
     </div>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <form enctype="multipart/form-data" class="w-full" @submit.prevent>
     <div class="w-full py-2 bg-white flex flex-wrap items-center border-b">
-      <div class="font-bold w-full sm:w-1/4 md:w-1/6 py-2 px-4 text-left">
+      <div class="font-bold w-full md:w-1/6 py-2 px-4 text-left">
         Title:
       </div>
       <input
@@ -14,15 +14,20 @@
         class="font-brand text-brand border border-transparent text-3xl py-2 px-4 md:px-2 bg-white w-full md:w-auto flex-grow text-left"
       >
     </div>
-    <div class="w-full py-2 bg-white flex flex-wrap items-start border-b pr-2">
+    <div class="w-full bg-white flex flex-wrap items-start border-b p-4">
+      <div class="font-bold w-full md:w-1/6 text-left mb-2">
+        Blog Content:
+      </div>
+      <div class="w-full md:w-5/6">
       <wysiwyg v-model="body" />
+      </div>
     </div>
-    <div class="w-full py-2 bg-white flex flex-wrap items-center border-b">
-      <div class="font-bold w-1/3 sm:w-1/4 md:w-1/6 py-2 px-4 text-left">
+    <div class="w-full bg-white flex flex-wrap items-start border-b p-4">
+      <div class="font-bold w-full md:w-1/6 text-left mb-2">
         Featured Photo:
       </div>
-      <div class="px-12 lg:px-4 w-full flex flex-wrap justify-center items-center">
-        <label for="file" class="bg-blue-lightest border-4 border-dashed w-full h-auto flex flex-wrap justify-center items-center p-16">
+      <div class="w-full md:w-5/6 flex flex-wrap justify-center items-center">
+        <label for="file" class="bg-blue-lightest border-4 border-dashed w-full h-auto flex flex-wrap justify-center items-center p-6 md:p-16">
           <img 
             v-if="tmpImage !== ''" 
             :src="tmpImage" 
@@ -47,12 +52,12 @@
             class="hidden"
             @change="loadFile($event.target)"
           >
-          <span v-if="tmpImage === ''" class="text-3xl font-brand font-bold text-brand">Click here to upload a featured image</span>
+          <span v-if="tmpImage === ''" class="text-2xl font-brand font-bold text-grey-dark">Click here to upload a featured image</span>
         </label>
       </div>
     </div>
     <div class="w-full py-2 bg-white flex flex-wrap items-center border-b items-center justify-center">
-      <button class="bg-brand p-4 text-uppercase rounded w-1/3 text-white font-brand text-3xl" @click.prevent="submit">Create Blog</button>
+      <button class="bg-brand px-4 py-2 my-2 text-uppercase rounded w-auto text-white font-brand text-3xl" @click.prevent="submit">Create Blog Post</button>
     </div>
   </form>
 

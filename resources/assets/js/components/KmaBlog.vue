@@ -1,10 +1,10 @@
 <template>
-  <div class="container mx-auto bg-white flex flex-wrap justify-center mb-8">
-    <p class="w-full justify-between flex font-bold items-center text-secondary p-4 border-b border-secondary">
-      <span class="text-left w-auto text-3xl font-brand font-bold text-secondary">
+  <div class="container mx-auto flex flex-wrap justify-center py-4 px-2 mb-8">
+    <p class="w-full bg-white justify-between flex flex-wrap font-bold items-center text-secondary p-4 border-b border-secondary">
+      <span class="text-left w-full md:w-1/2 text-3xl font-brand font-bold text-secondary">
         ADD BLOG POST
       </span>
-      <small class="text-xs w-auto flex-grow text-right">Click on the text you want to edit</small>
+      <small class="text-xs w-full md:w-1/2 flex-grow md:text-right">Click on the text you want to edit</small>
     </p>
     <blog-list 
       :data-blogs="blogs"
