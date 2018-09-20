@@ -40,7 +40,7 @@
     </section>
     @endif
     @if($realtor->shouldHaveBlogs())
-        <section class="bg-grey-lightest py-8 lg:py-16 xl:py-24">
+        <section class="bg-grey-light py-8 lg:py-16 xl:py-24">
             <div class="container flex flex-wrap items-center justify-center mx-auto py-2">
                 <h2 class="text-brand w-full text-center pb-4 text-3xl">
                     Latest Blog Posts
