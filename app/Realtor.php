@@ -50,6 +50,11 @@ class Realtor
         return (config('modules.youtube') && $this->data->youtube_channel_id);
     }
 
+    public function shouldHaveBlogs()
+    {
+        return (config('modules.blog') && (Blog::count() > 0));
+    }
+
     public function hasListings()
     {
         return (count($this->listings) > 0);

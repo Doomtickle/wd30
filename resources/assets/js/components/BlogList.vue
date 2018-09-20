@@ -1,5 +1,5 @@
 <template>
-  <div class="justify-center">
+  <div class="justify-center w-full">
     <div class="add-blog bg-white flex flex-wrap mb-8">
       <add-blog-form 
         @submitted="submitted"

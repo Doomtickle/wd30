@@ -39,6 +39,30 @@
         </div>
     </section>
     @endif
+    @if($realtor->shouldHaveBlogs())
+        <section class="bg-grey-lightest py-8 lg:py-16 xl:py-24">
+            <div class="container flex flex-wrap items-center justify-center mx-auto py-2">
+                <h2 class="text-brand w-full text-center pb-4 text-3xl">
+                    Latest Blog Posts
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 -28 48 48"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather h-16 w-16 feather-rss"
+                    >
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </h2>
+                <blog-feed class="flex flex-wrap w-full justify-center"></blog-feed>
+            </div>
+        </section>
+    @endif
     @if($realtor->shouldHaveFacebook())
         <section class="bg-grey-lightest py-8 lg:py-16 xl:py-24">
             <div class="container flex flex-wrap items-center justify-center mx-auto py-2">
@@ -59,7 +83,7 @@
                         <circle cx="5" cy="19" r="1"></circle>
                     </svg>
                 </h2>
-                <facebook-feed class="flex flex-wrap w-full items-center justify-center"></facebook-feed>
+                <facebook-feed class="flex flex-wrap w-full justify-center"></facebook-feed>
             </div>
         </section>
     @endif

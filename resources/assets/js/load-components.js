@@ -3,6 +3,7 @@ Vue.component('avatar-upload', require('./components/AvatarUpload.vue'));
 Vue.component('bathrooms-field', require('./components/fields/Bathrooms.vue'));
 Vue.component('bedrooms-field', require('./components/fields/Bedrooms.vue'));
 Vue.component('bio-card', require('./components/BioCard.vue'));
+Vue.component('blog-feed', require('./components/BlogFeed.vue'));
 Vue.component(
   'broker-logo-upload',
   require('./components/BrokerLogoUpload.vue'),
@@ -31,6 +32,7 @@ Vue.component('map-search', require('./components/MapSearch.vue'));
 Vue.component('max-price-field', require('./components/fields/MaxPrice.vue'));
 Vue.component('min-price-field', require('./components/fields/MinPrice.vue'));
 Vue.component('mini-article', require('./components/MiniArticle.vue'));
+Vue.component('mini-blog', require('./components/MiniBlog.vue'));
 Vue.component('mini-listing', require('./components/MiniListing.vue'));
 Vue.component('mls-number-list', require('./components/MlsNumberList.vue'));
 Vue.component('mls-number', require('./components/MlsNumber.vue'));
