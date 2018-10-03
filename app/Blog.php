@@ -9,11 +9,22 @@ class Blog extends Model
 {
     protected $guarded = [];
 
+    /**
+     * Gets the route key name.
+     * 
+     * @return string
+     */
     public function getRouteKeyName()
     {
         return 'slug';
     }
 
+
+    /**
+     * Uses "booting" method of the model.
+     * Saves the blog title as the page's slug.
+     * @return void
+     */
     public static function boot()
     {
         parent::boot();
@@ -22,13 +33,23 @@ class Blog extends Model
         });
     }
 
+    /**
+     * Delete a featured photo if it exists when removing a blog.
+     *
+     * @return void
+     */
     public function deletePhoto()
     {
-        if (Storage::disk('public')->exists($this->featured_photo_path)){
+        if (Storage::disk('public')->exists($this->featured_photo_path)) {
             Storage::disk('public')->delete($this->featured_photo_path);
         }
     }
 
+    /**
+     * Creates a meta description by truncating the blog content.
+     *
+     * @return string
+     */
     public function metaDescription()
     {
         $string = trim($this->body);

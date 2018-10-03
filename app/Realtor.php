@@ -14,11 +14,15 @@ class Realtor
     public $data;
     public $listings;
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->data = [];
         $this->listings = [];
     }
+    
     public function exists()
     {
         return User::where('is_realtor', 1)->exists();
